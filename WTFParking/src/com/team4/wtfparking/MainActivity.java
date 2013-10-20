@@ -3,13 +3,23 @@ package com.team4.wtfparking;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends Activity {
+	
+	Button loginButton;
+	Button guestLoginButton;
+	Button createAccountButton;
+	EditText userNameTextEdit;
+	EditText passwordTextEdit;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		
 	}
 
 	@Override

@@ -4,5 +4,8 @@
     <string name="app_name">WTFParking</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="login_button">Login</string>
+    <string name="guest_button">Guest</string>
+    <string name="create_user_button">Create Account</string>
 
 </resources>
