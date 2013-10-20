@@ -59,4 +59,15 @@
         android:layout_alignRight="@+id/createAccountButton"
         android:text="@string/guest_button" />
 
+    <TextView
+        android:id="@+id/testButtonTextEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/userNameEditText"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/passWordEditText"
+        android:layout_marginTop="20dp"
+        android:text="@string/test_button_textfield"
+        android:visibility="invisible" />
+
 </RelativeLayout>

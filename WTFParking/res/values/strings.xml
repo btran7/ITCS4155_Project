@@ -7,5 +7,6 @@
     <string name="login_button">Login</string>
     <string name="guest_button">Guest</string>
     <string name="create_user_button">Create Account</string>
+    <string name="test_button_textfield">Button Test Success</string>
 
 </resources>
