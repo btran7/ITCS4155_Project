@@ -32,14 +32,14 @@ public class MainActivity extends Activity {
 		passwordTextEdit = (EditText) findViewById(R.id.passWordEditText);
 		
 		//set action listener to the login button, the guest button and the create account button
-		loginButton.setOnClickListener(loginButtonListener);
+/*		loginButton.setOnClickListener(loginButtonListener);
 		guestLoginButton.setOnClickListener(guestLoginButtonListener);
 		createAccountButton.setOnClickListener(createAccountButtonListener);
-		
+*/		
 	}
 	
 	//implement actions for the login button, which will take user to the main menu
-	private OnClickListener loginButtonListener = new OnClickListener(){
+/*	private OnClickListener loginButtonListener = new OnClickListener(){
 		
 		@Override
 		public void onClick(View v) {
@@ -65,7 +65,7 @@ public class MainActivity extends Activity {
 			// TODO Auto-generated method stub			
 		}		
 	};
-
+*/
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
