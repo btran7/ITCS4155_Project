@@ -3,11 +3,19 @@
 
     <string name="app_name">WTFParking</string>
     <string name="action_settings">Settings</string>
-    <string name="login_button">Login</string>
-    <string name="guest_button">Guest</string>
-    <string name="create_user_button">Create Account</string>
-    <string name="test_button_textfield">Button Test Success</string>
-    <string name="user_name_text_view">User Email: </string>
-    <string name="password_text_view">Password: </string>
+    <string name="parking_list_button">Parking List</string>
+    <string name="parking_map_button">Campus Map</string>
+    <string name="favorite_button">Favorite</string>
+    <string name="filter_button">Filter</string>
+    <string name="today_parking_button">Lot by Day</string>
+    <string name="custom_list_view">Custom ListView Contents</string>
+    <string name="uri">URI:</string>
+    <string name="include_resident">Include Resident</string>
+    <string name="include_commuter">Include Commuter</string>
+    <string name="include_faculty">Include Faculty</string>
+    <string name="include_visitor">Include Visitor</string>
+    <string name="include_handicapped">Include Handicapped</string>
+    <string name="include_meter">Include Meter Parking</string>
+    <string name="submit_button">Submit</string>
 
 </resources>
