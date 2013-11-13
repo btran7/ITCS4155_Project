@@ -24,24 +24,36 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080008;
-        public static final int createAccountButton=0x7f080002;
-        public static final int guestButton=0x7f080000;
-        public static final int loginButton=0x7f080001;
-        public static final int passWordEditText=0x7f080004;
-        public static final int passWordTextView=0x7f080007;
-        public static final int testButtonTextEdit=0x7f080003;
-        public static final int userNameEditText=0x7f080006;
-        public static final int userNameTextView=0x7f080005;
+        public static final int LinearLayout1=0x7f08000b;
+        public static final int ListView01=0x7f08000c;
+        public static final int TableLayout1=0x7f08000d;
+        public static final int action_settings=0x7f080013;
+        public static final int available=0x7f080008;
+        public static final int capacity=0x7f08000a;
+        public static final int custom_row=0x7f080005;
+        public static final int favButton=0x7f080002;
+        public static final int filterButton=0x7f080003;
+        public static final int labelAvailable=0x7f080007;
+        public static final int labelCapacity=0x7f080009;
+        public static final int label_available=0x7f08000f;
+        public static final int label_capacity=0x7f080010;
+        public static final int label_status=0x7f080011;
+        public static final int lotName=0x7f080006;
+        public static final int lot_name=0x7f08000e;
+        public static final int pkListButton=0x7f080001;
+        public static final int pkMapButton=0x7f080000;
+        public static final int status=0x7f080012;
+        public static final int todayPkButton=0x7f080004;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int create_account_layout=0x7f030001;
-        public static final int main_menu_layout=0x7f030002;
-        public static final int parking_list_layout=0x7f030003;
-        public static final int parking_map_layout=0x7f030004;
-        public static final int rules_and_regulations_layout=0x7f030005;
-        public static final int view_parking_layout=0x7f030006;
+        public static final int custom_row_view=0x7f030001;
+        public static final int favorite_layout=0x7f030002;
+        public static final int filter_lot_type_layout=0x7f030003;
+        public static final int parking_list_layout=0x7f030004;
+        public static final int parking_map_layout=0x7f030005;
+        public static final int rules_and_regulations_layout=0x7f030006;
+        public static final int view_parking_layout=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -49,12 +61,13 @@ public final class R {
     public static final class string {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
-        public static final int create_user_button=0x7f050004;
-        public static final int guest_button=0x7f050003;
-        public static final int login_button=0x7f050002;
-        public static final int password_text_view=0x7f050007;
-        public static final int test_button_textfield=0x7f050005;
-        public static final int user_name_text_view=0x7f050006;
+        public static final int custom_list_view=0x7f050007;
+        public static final int favorite_button=0x7f050004;
+        public static final int filter_button=0x7f050005;
+        public static final int parking_list_button=0x7f050002;
+        public static final int parking_map_button=0x7f050003;
+        public static final int today_parking_button=0x7f050006;
+        public static final int uri=0x7f050008;
     }
     public static final class style {
         /** 

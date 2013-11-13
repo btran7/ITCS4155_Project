@@ -2,21 +2,19 @@ package com.team4.wtfparking;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.EditText;
 
 public class MainActivity extends Activity {
 	
 	//declare buttons and edit text field
-	Button loginButton;
-	Button guestLoginButton;
-	Button createAccountButton;
-	
-	EditText userNameTextEdit;
-	EditText passwordTextEdit;
+	Button pkListButton;
+	Button pkMapButton;
+	Button favButton;
+	Button filterButton;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,48 +22,56 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		
 		//initialize buttons and text edit fields and link them to the xml layouts using ID from the layout objects
-		loginButton = (Button) findViewById(R.id.loginButton);
-		guestLoginButton = (Button) findViewById(R.id.guestButton);
-		createAccountButton = (Button) findViewById(R.id.createAccountButton);
-		
-		userNameTextEdit = (EditText) findViewById(R.id.userNameEditText);
-		passwordTextEdit = (EditText) findViewById(R.id.passWordEditText);
+		pkListButton = (Button) findViewById(R.id.pkListButton);
+		pkMapButton = (Button) findViewById(R.id.pkMapButton);
+		favButton = (Button) findViewById(R.id.favButton);
+		filterButton = (Button) findViewById(R.id.filterButton);
 		
 		//set action listener to the login button, the guest button and the create account button
-/*		loginButton.setOnClickListener(loginButtonListener);
-		guestLoginButton.setOnClickListener(guestLoginButtonListener);
-		createAccountButton.setOnClickListener(createAccountButtonListener);
-*/		
+		pkListButton.setOnClickListener(pkListButtonListener);
+		pkMapButton.setOnClickListener(pkMapButtonListener);
+		favButton.setOnClickListener(favButtonListener);
+		filterButton.setOnClickListener(filterButtonListener);
+	
 	}
 	
-	//implement actions for the login button, which will take user to the main menu
-/*	private OnClickListener loginButtonListener = new OnClickListener(){
+	//implement actions for the parking list button which starts the parking list activity
+	private OnClickListener pkListButtonListener = new OnClickListener(){
 		
 		@Override
 		public void onClick(View v) {
+			Intent pkList = new Intent(getApplicationContext(), ParkingList.class);
+			startActivity(pkList);
+		}		
+	};
+	
+	private OnClickListener pkMapButtonListener = new OnClickListener(){
 		
-		}		
-	};
-	
-	//implement actions for the guest login button, which will take user to the main menu
-	//this main menu will have all the features available only to registered user set as invisible
-	private OnClickListener guestLoginButtonListener = new OnClickListener(){
-
-		@Override
-		public void onClick(View arg0) {
-			// TODO Auto-generated method stub			
-		}		
-	};
-	
-	//implement actions for the create account button, this action will take user to the create account page.
-	private OnClickListener createAccountButtonListener = new OnClickListener(){
-
 		@Override
 		public void onClick(View v) {
-			// TODO Auto-generated method stub			
+			Intent pkMap = new Intent(getApplicationContext(), ParkingMap.class);
+			startActivity(pkMap);
 		}		
 	};
-*/
+	
+private OnClickListener favButtonListener = new OnClickListener(){
+		
+		@Override
+		public void onClick(View v) {
+			Intent fav = new Intent(getApplicationContext(), Favorite.class);
+			startActivity(fav);
+		}		
+	};
+	
+private OnClickListener filterButtonListener = new OnClickListener(){
+		
+		@Override
+		public void onClick(View v) {
+			Intent filter = new Intent(getApplicationContext(), FilterLotTypes.class);
+			startActivity(filter);
+		}		
+	};
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
