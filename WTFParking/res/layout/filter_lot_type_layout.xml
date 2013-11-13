@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <CheckBox
+        android:id="@+id/commuter_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
+        android:text="@string/include_commuter" />
+    
+    <CheckBox
+        android:id="@+id/faculty_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/commuter_check"
+        android:layout_below="@+id/commuter_check"
+        android:layout_marginTop="20dp"
+        android:text="@string/include_faculty" />
+    
+    <CheckBox
+        android:id="@+id/resident_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/faculty_check"
+        android:layout_below="@+id/faculty_check"
+        android:layout_marginTop="20dp"
+        android:text="@string/include_resident" />
+
+    <CheckBox
+        android:id="@+id/handicapped_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/resident_check"
+        android:layout_below="@+id/resident_check"
+        android:layout_marginTop="20dp"
+        android:text="@string/include_handicapped" />
+
+    <CheckBox
+        android:id="@+id/meter_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/handicapped_check"
+        android:layout_alignLeft="@+id/handicapped_check"
+        android:layout_marginTop="20dp"
+        android:text="@string/include_meter" />
+
+    <CheckBox
+        android:id="@+id/visitor_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/meter_check"
+        android:layout_below="@+id/meter_check"
+        android:layout_marginTop="20dp"
+        android:text="@string/include_visitor" />
+    
+    <Button
+        android:id="@+id/submit_filter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/submit_button" />
+
+</RelativeLayout>

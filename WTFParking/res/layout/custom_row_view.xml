@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical" 
+ android:id="@+id/custom_row"
+ android:layout_width="fill_parent"
+  android:layout_height="fill_parent">
+  
+  <TextView android:id="@+id/lotName"
+	  android:textSize="16sp" 
+	  android:textStyle="bold" 
+	  android:layout_width="fill_parent" 
+	  android:layout_height="wrap_content"/>
+  
+   <TextView
+	  android:id="@+id/labelCapacity"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:layout_alignParentLeft="true"
+	  android:layout_below="@+id/lotName"
+	  android:text="    Capacity:    "/>
+   
+  <TextView
+	  android:id="@+id/labelAvailable"
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:layout_alignParentLeft="true"
+	  android:layout_below="@+id/labelCapacity"
+	  android:text="    Available:    "/>
+  
+   <TextView
+		android:id="@+id/labelStatus"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_below="@+id/labelAvailable"
+		android:text="    Status:        "/>
+   
+ <TextView android:id="@+id/capacity" 
+	  android:layout_width="wrap_content" 
+	  android:textSize="14sp" 
+	  android:layout_toRightOf="@+id/labelCapacity"
+	  android:layout_below="@+id/lotName"
+	  android:layout_height="wrap_content"/>
+ 
+
+    
+ <TextView android:id="@+id/available" 
+	  android:layout_width="wrap_content" 
+	  android:textSize="14sp" 
+	  android:layout_toRightOf="@+id/labelAvailable"
+	  android:layout_below="@+id/labelCapacity"
+	  android:layout_height="wrap_content"/>
+ 
+
+  
+ <TextView android:id = "@+id/lotStatus"
+     android:layout_width="wrap_content"
+     android:textSize="14sp"
+     android:layout_toRightOf="@+id/labelStatus"
+     android:layout_below="@+id/available"
+     android:layout_height="wrap_content"/>
+ 
+</RelativeLayout>
