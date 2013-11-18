@@ -12,11 +12,13 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label=""
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.team4.wtfparking.MainActivity"
-            android:label="Where to find Parking" >
+            android:label="Where to find Parking" 
+            android:gravity="center">
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,11 +27,12 @@
         </activity>
         
         <activity android:name=".ParkingList"
-        	android:label="List of Parking">
+        	android:label="List of Parkings"
+        	android:gravity="center">
         </activity>
         
         <activity android:name=".ParkingMap"
-            android:label="Campus Map">            
+            android:label="">            
         </activity>
         
         <activity android:name=".RulesAndRegulations"
@@ -37,15 +40,17 @@
         </activity>
         
         <activity android:name=".ViewParking"
-            android:label="Display Parking">
+            android:label="">
         </activity>
         
          <activity android:name=".Favorite"
-            android:label="Favorite Parking Lot">
+            android:label="Favorite Parking Lot"
+            android:gravity="center">
         </activity>
         
           <activity android:name=".FilterLotTypes"
-            android:label="Filter Lot Types">
+            android:label="Filter Lot Types"
+            android:gravity="center">
         </activity>
         
     </application>

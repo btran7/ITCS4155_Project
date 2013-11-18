@@ -6,55 +6,63 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/main"
     tools:context=".MainActivity" >
-
+    	 
     <Button
         android:id="@+id/pkMapButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/pkListButton"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:textSize="12sp"
         android:text="@string/parking_map_button" />
 
     <Button
         android:id="@+id/favButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pkMapButton"
-        android:layout_alignRight="@+id/pkMapButton"
-        android:layout_below="@+id/pkMapButton"
-        android:layout_marginTop="27dp"
+        android:layout_above="@+id/pkMapButton"
+        android:textSize="12sp"
         android:text="@string/favorite_button" />
 
     <Button
         android:id="@+id/filterButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/favButton"
-        android:layout_alignRight="@+id/favButton"
-        android:layout_below="@+id/favButton"
-        android:layout_marginTop="28dp"
+        android:layout_above="@+id/favButton"
+        android:textSize="12sp"
         android:text="@string/filter_button" />
 
     <Button
         android:id="@+id/todayPkButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/filterButton"
-        android:layout_alignRight="@+id/filterButton"
-        android:layout_below="@+id/filterButton"
-        android:layout_marginTop="33dp"
+        android:layout_above="@+id/filterButton"
+        android:textSize="12sp"
         android:text="@string/today_parking_button" />
 
     <Button
         android:id="@+id/pkListButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/pkMapButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/pkMapButton"
-        android:layout_marginTop="32dp"
-        android:text="@string/parking_list_button" />
+        android:layout_above="@+id/todayPkButton"
+        android:layout_alignLeft="@+id/todayPkButton"
+        android:text="@string/parking_list_button"
+        android:textSize="12sp" />
+    
+	 <TextView
+		  android:id="@+id/admin_comment"
+		  android:layout_width="wrap_content"
+		  android:layout_height="wrap_content"
+		  android:layout_centerHorizontal="true"
+		  android:layout_above="@+id/pkListButton"
+		  android:layout_marginBottom="25dp"
+		  android:textSize="16sp"
+		  android:ellipsize="marquee"
+		  android:singleLine="true"
+		  android:scrollHorizontally="true"
+		  android:marqueeRepeatLimit="marquee_forever"
+		  android:text="@string/adm_comment_txt"/>    
 
 </RelativeLayout>

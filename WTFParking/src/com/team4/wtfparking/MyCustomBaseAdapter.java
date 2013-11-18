@@ -3,6 +3,7 @@ package com.team4.wtfparking;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,12 +49,31 @@ public class MyCustomBaseAdapter extends BaseAdapter {
 	   holder = (ViewHolder) convertView.getTag();
 	  }
 	  
-	  holder.tvLotName.setText(searchArrayList.get(position).getLotName());
-	  holder.tvCapacity.setText(searchArrayList.get(position).getLotCapacity());
-	  holder.tvAvailable.setText(searchArrayList.get(position).getLotAvailability());
-	  holder.tvStatus.setText(searchArrayList.get(position).getStatus());
-	  holder.tvLotName.setBackgroundColor(0xffcccccc);
+	  String avail = searchArrayList.get(position).getLotAvailability();
+	  String cap = searchArrayList.get(position).getLotCapacity();
 	  
+	  holder.tvLotName.setText(searchArrayList.get(position).getLotName());
+	  holder.tvCapacity.setText(cap);
+	  holder.tvAvailable.setText(avail);
+	  holder.tvStatus.setText(searchArrayList.get(position).getStatus());
+	  
+	  int availInt = Integer.parseInt(avail);
+	  int capInt = Integer.parseInt(cap);
+	  if (availInt <= 5 && capInt >= 50){
+			convertView.setBackgroundColor(Color.rgb(255,150,125));
+			holder.tvLotName.setTextColor(Color.WHITE);
+			holder.tvLotName.setBackgroundColor(Color.rgb(155, 10, 5));
+		} else if (availInt <= 25 && capInt >=100){
+			convertView.setBackgroundColor(Color.rgb(232,255,132));
+			holder.tvLotName.setTextColor(Color.WHITE);
+			holder.tvLotName.setBackgroundColor(Color.rgb(100, 90, 1));
+			
+		}else{
+			convertView.setBackgroundColor(Color.rgb(190,255,150));
+			holder.tvLotName.setTextColor(Color.WHITE);
+			holder.tvLotName.setBackgroundColor(Color.rgb(10, 100, 5));
+		}
+	 
 	  return convertView;
 	 }
 

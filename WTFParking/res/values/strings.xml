@@ -10,12 +10,18 @@
     <string name="today_parking_button">Lot by Day</string>
     <string name="custom_list_view">Custom ListView Contents</string>
     <string name="uri">URI:</string>
-    <string name="include_resident">Include Resident</string>
-    <string name="include_commuter">Include Commuter</string>
-    <string name="include_faculty">Include Faculty</string>
-    <string name="include_visitor">Include Visitor</string>
-    <string name="include_handicapped">Include Handicapped</string>
-    <string name="include_meter">Include Meter Parking</string>
+    <string name="include_resident">Filter Resident</string>
+    <string name="include_commuter">Filter Commuter</string>
+    <string name="include_faculty">Filter Faculty</string>
+    <string name="include_visitor">Filter Visitor</string>
+    <string name="include_handicapped">Filter Handicapped</string>
+    <string name="include_meter">Filter Meter Parking</string>
     <string name="submit_button">Submit</string>
+    <string name="adm_comment_txt">Welcome to UNCC Parking Services.</string>
+    <string name="name_text">Parking Name</string>
+    <string name="cap_text">Capacity</string>
+    <string name="avail_text">Full</string>
+    <string name="stat_text">Status</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

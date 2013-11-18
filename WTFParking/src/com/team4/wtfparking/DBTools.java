@@ -1,35 +1,149 @@
 package com.team4.wtfparking;
 
+import java.util.Set;
+import java.util.Map.Entry;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class DBTools extends SQLiteOpenHelper {
+public class DBTools {
 
-	public DBTools(Context applicationContext) {
-
-		super(applicationContext, "WTFParking.db", null, 1);
-		}
-		 
-		String table3 = "preference";
-		 
-		final String CREATE_TABLE_3 =
-		"CREATE TABLE IF NOT EXISTS " + table3 + " (lotName INTEGER PRIMARY KEY, capacity TEXT," 
-		+ "available TEXT, event_time INTEGER, author_name TEXT, track TEXT)";
-
-		 
-		@Override
-		public void onCreate(SQLiteDatabase db) {
-		db.execSQL(CREATE_TABLE_3);
-	}
-
-	@Override
-	public void onUpgrade(SQLiteDatabase db, int olderversion, int newerversion) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
-
+     private String TABLE_NAME = "my_table";
+     int DATABASE_VERSION = 1;
+     private String _ID = "id";
+     private String _CHK_VALUES = "checkbox_value";
+ 
+    public String getTableName(){           return TABLE_NAME;}
+    public int getDatabaseVersion() {       return DATABASE_VERSION;}
+ 
+    public String getID()       {       return _ID;         }
+    public String getScore()    {       return _CHK_VALUES;     }
+ 
+    public String getDatabaseCreateQuery()
+    {
+        final String DATABASE_CREATE =
+            "create table IF NOT EXISTS " + TABLE_NAME + " (" + _ID + " INTEGER PRIMARY KEY, "
+            + _CHK_VALUES + " TEXT NOT NULL)";
+ 
+        return DATABASE_CREATE;
+    }
+}
+ 
+class dbOperation
+{
+        static String DB_TABLE ;
+        static int DB_VERSION = 1;
+        static String[] DATABASE_CREATE;
+        private Context context;
+        private DatabaseHelper DBHelper;
+        private SQLiteDatabase db;
+ 
+        public dbOperation(Context ctx,String[] query)
+        {
+            this.context = ctx;
+            DATABASE_CREATE = query;
+            DBHelper = new DatabaseHelper(context);
+        }
+        public dbOperation(Context ctx)
+        {
+            this.context = ctx;
+            DBHelper = new DatabaseHelper(context);
+        }
+ 
+        public dbOperation(String tablename)  //for inner calling
+        {
+            DB_TABLE = tablename;
+            DBHelper = new DatabaseHelper(context);
+        }
+ 
+        public dbOperation open() throws SQLException
+        {
+            db = DBHelper.getWritableDatabase();
+            return this;
+        }
+        public void close()
+        {
+            DBHelper.close();
+        }
+        private static class DatabaseHelper extends SQLiteOpenHelper
+        {
+            DatabaseHelper(Context context)
+            {
+                super(context, "mydb.db", null, DB_VERSION);
+            }
+            public void onCreate(SQLiteDatabase db)
+            {
+                try
+                {
+                    for (String s  : DATABASE_CREATE)
+                    {
+                        db.execSQL(s);
+                    }
+                }
+                catch (Exception e) {
+                    System.out.println("Error creating items Per screen in the constructor" + e.getMessage());
+                }
+            }
+            public void onUpgrade(SQLiteDatabase db, int oldVersion,
+            int newVersion)
+            {
+                db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE);
+                onCreate(db);
+            }
+        }
+ 
+        public long insertTableData(String tablename,ContentValues values)  throws SQLException
+        {
+            DB_TABLE = tablename;
+            ContentValues initialValues2 = new ContentValues();
+            Set<Entry<String, Object>> s =  values.valueSet();
+            String new_val = "";
+            for (Entry<String, Object> entry : s) {
+                new_val = values.getAsString(entry.getKey());
+                initialValues2.put(entry.getKey(), new_val);
+            }
+            return db.insert(DB_TABLE, null, initialValues2);
+        }
+        public boolean deleteTableData(String tablename,String condition)  throws SQLException
+        {
+            DB_TABLE = tablename;
+            return db.delete(DB_TABLE, condition, null) > 0;
+        }
+        public Cursor getAllTableData(String tablename,String[] fields)  throws SQLException
+        {
+            DB_TABLE = tablename;
+                return db.query(DB_TABLE, fields,null, null, null, null, null);
+        }
+        public Cursor getTableRow(String tablename,String[] dbFields, String condition,String order,String limit) throws SQLException
+        {
+            DB_TABLE = tablename;
+            Cursor mCursor =    db.query(false, DB_TABLE, dbFields,condition,
+                                null,null,null, order, limit);
+ 
+            if (mCursor != null) {
+                mCursor.moveToFirst();
+            }
+            return mCursor;
+        }
+        public boolean updateTable(String tablename,ContentValues args,String condition)
+        {
+            DB_TABLE = tablename;
+            return db.update(DB_TABLE, args,condition , null) > 0;
+ 
+        }
+        public int lastInsertedID(String tablename)
+        {
+            int retVar=0;
+            Cursor mCursor = db.rawQuery("select max(id) from "+tablename, null);
+ 
+            if (mCursor != null) {
+                mCursor.moveToFirst();
+                retVar =Integer.parseInt(mCursor.getString(0));
+            }
+            mCursor.close();
+            return retVar ;
+        }
 }
