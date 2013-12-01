@@ -31,10 +31,6 @@
         	android:gravity="center">
         </activity>
         
-        <activity android:name=".ParkingMap"
-            android:label="">            
-        </activity>
-        
         <activity android:name=".RulesAndRegulations"
             android:label="Rules and Regulation">
         </activity>

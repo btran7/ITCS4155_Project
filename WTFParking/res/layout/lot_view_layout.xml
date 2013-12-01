@@ -1,0 +1,84 @@
+	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.andriod.com/tools"
+    android:id="@+id/lot_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lot_name_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text=""
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lot_capacity_title"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:text=""
+        android:gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold" 
+        android:layout_below="@+id/lot_name_title"/>
+        
+    <TextView
+        android:id="@+id/lot_available_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Total Available Title: "
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textStyle="bold" 
+        android:layout_below="@+id/lot_capacity_title"/>
+    
+        <TextView
+        android:id="@+id/lot_available_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="60sp"
+        android:textStyle="bold" 
+        android:layout_below="@+id/lot_available_title"/>
+            
+    <TextView
+        android:id="@+id/lot_status_title"
+        android:layout_width="match_parent"
+        android:textColor="#FFFFFF"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/lot_available_value"/>
+
+	<TextView 
+	    android:id="@+id/lot_status"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center"
+	    android:textSize="20sp"
+	    android:layout_below="@+id/lot_status_title"/>
+        
+    <ListView  android:id="@+id/lotView"
+        android:textSize="16sp"
+        android:layout_height = "wrap_content"
+        android:layout_width="fill_parent"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/lot_status"
+        android:layout_above="@+id/view_lot_refresh">
+    </ListView>
+    
+    <Button
+        android:id="@+id/view_lot_refresh"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/refresh"
+        android:textSize="12sp" />
+    
+</RelativeLayout>

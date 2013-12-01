@@ -1,8 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/favLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
+    <TextView
+        android:id="@+id/noFavMessage"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="invisible"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:text="You do not have any favorite parking lots set right now. Select favorite from the Parking List."
+        android:layout_marginTop="30dp"/>
+    
+    <Button
+        android:id="@+id/fav_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+		android:layout_above="@+id/pkListLinkbutton"
+        android:text="@string/refresh"
+        android:textSize="12sp" />    
+    
+    <Button
+        android:id="@+id/pkListLinkbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Parking List"
+        android:textSize="12sp" />
 
-</LinearLayout>
+    <ListView
+        android:id="@+id/favView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    </ListView>
+
+</RelativeLayout>

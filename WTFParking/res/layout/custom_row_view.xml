@@ -5,45 +5,64 @@
  android:layout_width="fill_parent"
   android:layout_height="fill_parent">
   
+   <CheckBox
+      android:id="@+id/star"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:focusable="false" 
+      android:focusableInTouchMode="false"
+      style="?android:attr/starStyle" />
+  
   <TextView android:id="@+id/lotName"
-	  android:textSize="16sp" 
+	  android:textSize="25sp" 
 	  android:textStyle="bold" 
 	  android:layout_width="fill_parent" 
+	  android:layout_toRightOf="@+id/star"
 	  android:layout_height="wrap_content"/>
   
    <TextView
 	  android:id="@+id/labelCapacity"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
-	  android:layout_alignParentLeft="true"
-	  android:layout_below="@+id/lotName"
-	  android:text="    Capacity:    "/>
+	  android:layout_marginLeft="15dp"
+	  android:layout_below="@+id/star"
+	  android:text="    Capacity:      "/>
    
   <TextView
 	  android:id="@+id/labelAvailable"
 	  android:layout_width="wrap_content"
 	  android:layout_height="wrap_content"
 	  android:layout_alignParentLeft="true"
+	  android:layout_marginLeft="15dp"
 	  android:layout_below="@+id/labelCapacity"
-	  android:text="    Available:    "/>
+	  android:text="    Available:      "/>
   
    <TextView
 		android:id="@+id/labelStatus"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_alignParentLeft="true"
+		android:layout_marginLeft="15dp"
 		android:layout_below="@+id/labelAvailable"
-		android:text="    Status:        "/>
+		android:text="    Status:          "/>
+   
+   <TextView
+		android:id="@+id/labelComment"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_marginLeft="15dp"
+		android:layout_below="@+id/labelStatus"
+		android:text="    Comment:          "/>
    
  <TextView android:id="@+id/capacity" 
 	  android:layout_width="wrap_content" 
 	  android:textSize="14sp" 
 	  android:layout_toRightOf="@+id/labelCapacity"
-	  android:layout_below="@+id/lotName"
+	  android:layout_below="@+id/star"
 	  android:layout_height="wrap_content"/>
- 
-
-    
+   
  <TextView android:id="@+id/available" 
 	  android:layout_width="wrap_content" 
 	  android:textSize="14sp" 
@@ -51,13 +70,22 @@
 	  android:layout_below="@+id/labelCapacity"
 	  android:layout_height="wrap_content"/>
  
-
-  
  <TextView android:id = "@+id/lotStatus"
      android:layout_width="wrap_content"
      android:textSize="14sp"
      android:layout_toRightOf="@+id/labelStatus"
      android:layout_below="@+id/available"
      android:layout_height="wrap_content"/>
+ 
+ <TextView android:id = "@+id/lotComment"
+     android:layout_width="wrap_content"
+     android:textSize="14sp"
+     android:layout_toRightOf="@+id/labelStatus"
+     android:layout_below="@+id/lotStatus"
+     android:layout_height="wrap_content"
+     android:ellipsize="marquee"
+     android:singleLine="true"
+	 android:scrollHorizontally="true"
+	 android:marqueeRepeatLimit="marquee_forever"/>
  
 </RelativeLayout>

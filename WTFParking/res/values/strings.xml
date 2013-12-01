@@ -7,7 +7,7 @@
     <string name="parking_map_button">Campus Map</string>
     <string name="favorite_button">Favorite</string>
     <string name="filter_button">Filter</string>
-    <string name="today_parking_button">Lot by Day</string>
+    <string name="today_parking_button">Daily Lot</string>
     <string name="custom_list_view">Custom ListView Contents</string>
     <string name="uri">URI:</string>
     <string name="include_resident">Filter Resident</string>

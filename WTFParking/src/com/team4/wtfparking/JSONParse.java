@@ -16,6 +16,7 @@ public class JSONParse {
 	int residentAvail=0, commuterAvail=0, facultyAvail=0, visitorAvail=0,handicappedAvail=0, meterAvail=0;
 	int totalAvail=0;
 	String lotName, status, uri, comment;
+	boolean isFav= false;
 	ArrayList<String> pk = new ArrayList<String>();
 	
 	//in the constructor, the received json object will be parsed into all the variables declared earlier
@@ -23,11 +24,13 @@ public class JSONParse {
 		
 		Context applicationContext = MainActivity.getContextOfApplication();
 		SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext);
-		//this class call the SharedPreference and get the checkbox for each item
-		//if the checkbox == true (the box is checked), then ignore the item
-		//for example, if commuter box is checked, that means its filtered out, then ignore it
-		//if commuter box is not checked, that means it should be added to the total capacity and availability
 		
+		lotName = json.getString("lot_name");
+		uri = json.getString("resource_uri");
+		status = json.getString("status");
+		comment = json.getString("comment");
+		
+		id = json.getInt("id");
 		
 		boolean filterCommuter = sharedPreferences.getBoolean("commuter_value", false);
 		boolean filterFaculty = sharedPreferences.getBoolean("faculty_value", false);
@@ -35,16 +38,13 @@ public class JSONParse {
 		boolean filterVisitor = sharedPreferences.getBoolean("visitor_value", false);
 		boolean filterHandicapped = sharedPreferences.getBoolean("handicapped_value", false);
 		boolean filterMeter = sharedPreferences.getBoolean("meter_value", false);
+		boolean filterFav = sharedPreferences.getBoolean(lotName, false);
 		
-		id = json.getInt("id");
+		if (filterFav){
+			isFav=true;
+		}
+			
 		
-		lotName = json.getString("lot_name");
-		uri = json.getString("resource_uri");
-		status = json.getString("status");
-		comment = json.getString("comment");
-		
-		//if boxes (in sharedpreference) is not checked, then parse the value that was pulled off the web app
-		//and parse it into its respective variable (if not, then the default value is 0
 		if (!filterMeter){
 			meterMax = json.getInt("meter_max");
 			meterAvail = json.getInt("meter_avail");
@@ -79,11 +79,10 @@ public class JSONParse {
 		totalAvail+=residentAvail+commuterAvail+facultyAvail+visitorAvail+handicappedAvail;
 	}
 	
-	
-	//this method returns an array list of specific parking types in the lot
-	//if the value is 0, that means the lot doesn't have that parking type or user checked the filter box for the type
-	//and it will not be added to the array list.
-	ArrayList <String> getList(){		
+	//hashmap containing all the values for each individual parking, the ViewParking Activity will use this 
+	//method to display all the information of the parking in a listview.
+	ArrayList <String> getList(){
+		
 		if (residentMax !=0){
 			pk.add("Resident:               "+Integer.toString(residentAvail)+"/"+Integer.toString(residentMax));
 		}
@@ -101,7 +100,7 @@ public class JSONParse {
 		}
 		
 		if (handicappedMax != 0){
-			pk.add("Handicapped:        "+Integer.toString(handicappedAvail)+"/"+Integer.toString(handicappedMax));
+			pk.add("Handicapped:       "+Integer.toString(handicappedAvail)+"/"+Integer.toString(handicappedMax));
 		}
 		
 		if (meterMax != 0){
@@ -126,6 +125,11 @@ public class JSONParse {
 	}
 	
 	String getStatus(){
+		if (status.equals("OP")){
+			status="Open";
+		}else if (status.equals("CL")){
+			status="Closed";
+		}
 		return status;
 	}
 	
@@ -139,5 +143,8 @@ public class JSONParse {
 	
 	String getComment(){
 		return comment;
+	}
+	boolean getFav(){
+		return isFav;
 	}
 }
